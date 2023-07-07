@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/validation.dir/validation.cpp.o CMakeFiles/validation.dir/validation-gt.cpp.o -o validation  lib/libgtest_main.a lib/libgtest.a 
