@@ -6,5 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = -isystem /home/ted/Desktop/vs/password-check/build/_deps/googletest-src/googletest/include -isystem /home/ted/Desktop/vs/password-check/build/_deps/googletest-src/googletest
 
-CXX_FLAGS = 
+CXX_FLAGS = -Wall -Wextra -pedantic -Werror -Wconversion
 

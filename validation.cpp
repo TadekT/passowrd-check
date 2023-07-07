@@ -18,3 +18,7 @@ std::string getErrorMessage(ErrorCode code){
         default : return "Unknow Error";
     }
 }
+
+bool doPasswordMatch(std::string const &first ,std::string const &secoud){
+    
+}

@@ -12,6 +12,6 @@ enum class ErrorCode{
 };
 
 std::string getErrorMessage(ErrorCode code);
-
+bool doPasswordMatch(std::string const &first ,std::string const &secoud);
 
 #endif //VALIDATION_HPP

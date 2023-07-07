@@ -25,7 +25,9 @@ target_link_libraries(
     validation
     GTest::gtest_main
     )
-    
+
+target_compile_options(validation PRIVATE -Wall -Wextra -pedantic -Werror -Wconversion)
+  
 include(GoogleTest)
 gtest_discover_tests(validation)
       
