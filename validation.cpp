@@ -50,6 +50,13 @@ bool checkPasswordRules(std::string const pass)
         getErrorMessage(ErrorCode::PasswordNeedsAtLeastOneNumber);
         return false;
     }
+
+    auto haveSpecialChar = std::any_of(pass.begin(), pass.end(),[](unsigned char x)
+                                        {return std::ispunct(x);});
+    if(haveSpecialChar == false){
+        getErrorMessage(ErrorCode::PasswordNeedsAtLeastOneSpecialCharacter);
+    return false;
+    }
     else
     {
         getErrorMessage(ErrorCode::Ok);
