@@ -33,4 +33,26 @@ bool doPasswordMatch(std::string const &first, std::string const &secoud)
         getErrorMessage(ErrorCode::PasswordsDoNotMatch);
         return false;
     }
- }
+}
+
+bool checkPasswordRules(std::string const pass)
+{
+    if (pass.length() < 9)
+    {
+        getErrorMessage(ErrorCode::PasswordNeedsAtLeastNineCharacters);
+        return false;
+    }
+
+    auto haveDigit = std::any_of(pass.begin(), pass.end(), [](unsigned char x)
+                                 { return std::isdigit(x); });
+    if (haveDigit == false)
+    {
+        getErrorMessage(ErrorCode::PasswordNeedsAtLeastOneNumber);
+        return false;
+    }
+    else
+    {
+        getErrorMessage(ErrorCode::Ok);
+        return true;
+    }
+}

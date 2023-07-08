@@ -4,4 +4,6 @@ add_test( getErrorMessage.CheckingErrorFunction /home/ted/Desktop/vs/password-ch
 set_tests_properties( getErrorMessage.CheckingErrorFunction PROPERTIES WORKING_DIRECTORY /home/ted/Desktop/vs/password-check/build SKIP_REGULAR_EXPRESSION [==[\[  SKIPPED \]]==])
 add_test( doPasswordMatch.TestingFunctionThatMatchPasswords /home/ted/Desktop/vs/password-check/build/validation [==[--gtest_filter=doPasswordMatch.TestingFunctionThatMatchPasswords]==] --gtest_also_run_disabled_tests)
 set_tests_properties( doPasswordMatch.TestingFunctionThatMatchPasswords PROPERTIES WORKING_DIRECTORY /home/ted/Desktop/vs/password-check/build SKIP_REGULAR_EXPRESSION [==[\[  SKIPPED \]]==])
-set( validation_TESTS ABAABA.DUPAUDAP getErrorMessage.CheckingErrorFunction doPasswordMatch.TestingFunctionThatMatchPasswords)
+add_test( checkPasswordRules.AllRulsOK /home/ted/Desktop/vs/password-check/build/validation [==[--gtest_filter=checkPasswordRules.AllRulsOK]==] --gtest_also_run_disabled_tests)
+set_tests_properties( checkPasswordRules.AllRulsOK PROPERTIES WORKING_DIRECTORY /home/ted/Desktop/vs/password-check/build SKIP_REGULAR_EXPRESSION [==[\[  SKIPPED \]]==])
+set( validation_TESTS ABAABA.DUPAUDAP getErrorMessage.CheckingErrorFunction doPasswordMatch.TestingFunctionThatMatchPasswords checkPasswordRules.AllRulsOK)
