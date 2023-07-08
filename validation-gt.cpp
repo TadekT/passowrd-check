@@ -15,3 +15,8 @@ TEST(getErrorMessage, CheckingErrorFunction)
     EXPECT_EQ("Password Needs At Least One Uppercase Letter", getErrorMessage(ErrorCode::PasswordNeedsAtLeastOneUppercaseLetter));
     EXPECT_EQ("Passwords Do Not Match", getErrorMessage(ErrorCode::PasswordsDoNotMatch));
 }
+
+TEST(doPasswordMatch, TestingFunctionThatMatchPasswords){
+    EXPECT_TRUE(doPasswordMatch("TataMama","TataMama"));
+    EXPECT_FALSE(doPasswordMatch("tatamama","TATAMAMA"));
+}
