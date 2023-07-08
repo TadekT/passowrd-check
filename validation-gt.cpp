@@ -3,7 +3,6 @@
 
 TEST(ABAABA, DUPAUDAP)
 {
-
     EXPECT_TRUE(false);
 }
 TEST(getErrorMessage, CheckingErrorFunction)
@@ -24,7 +23,7 @@ TEST(doPasswordMatch, TestingFunctionThatMatchPasswords)
 
 TEST(checkPasswordRules ,AllRulsOK)
 {
-    EXPECT_TRUE(checkPasswordRules("Toporkiewicz1"));
+    EXPECT_TRUE(checkPasswordRules("To@porkiewicz1"));
     EXPECT_FALSE(checkPasswordRules("Topor1"));
-    EXPECT_TRUE(checkPasswordRules("torba1ababa"));
+    EXPECT_TRUE(checkPasswordRules("T!orba1ababa"));
 }

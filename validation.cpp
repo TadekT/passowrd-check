@@ -43,20 +43,28 @@ bool checkPasswordRules(std::string const pass)
         return false;
     }
 
-    auto haveDigit = std::any_of(pass.begin(), pass.end(), [](unsigned char x)
+    auto hasDigit = std::any_of(pass.begin(), pass.end(), [](unsigned char x)
                                  { return std::isdigit(x); });
-    if (haveDigit == false)
+    if (hasDigit == false)
     {
         getErrorMessage(ErrorCode::PasswordNeedsAtLeastOneNumber);
         return false;
     }
 
-    auto haveSpecialChar = std::any_of(pass.begin(), pass.end(),[](unsigned char x)
+    auto hasSpecialChar = std::any_of(pass.begin(), pass.end(),[](unsigned char x)
                                         {return std::ispunct(x);});
-    if(haveSpecialChar == false){
+    if(hasSpecialChar == false){
         getErrorMessage(ErrorCode::PasswordNeedsAtLeastOneSpecialCharacter);
     return false;
     }
+    
+    auto hasUpperChar = std::any_of(pass.begin(), pass.end(),[](unsigned char x)
+                                        {return std::isupper(x);});
+    if(hasUpperChar == false){
+        getErrorMessage(ErrorCode::PasswordNeedsAtLeastOneUppercaseLetter);
+        return false;
+    }
+
     else
     {
         getErrorMessage(ErrorCode::Ok);
