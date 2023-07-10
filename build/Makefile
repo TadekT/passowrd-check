@@ -175,6 +175,19 @@ validation/fast:
 .PHONY : validation/fast
 
 #=============================================================================
+# Target rules for targets named main
+
+# Build rule for target.
+main: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 main
+.PHONY : main
+
+# fast build rule for target.
+main/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
+.PHONY : main/fast
+
+#=============================================================================
 # Target rules for targets named gmock
 
 # Build rule for target.
@@ -226,6 +239,30 @@ gtest_main/fast:
 	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build
 .PHONY : gtest_main/fast
 
+main.o: main.cpp.o
+.PHONY : main.o
+
+# target to build an object file
+main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.o
+.PHONY : main.cpp.o
+
+main.i: main.cpp.i
+.PHONY : main.i
+
+# target to preprocess a source file
+main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.i
+.PHONY : main.cpp.i
+
+main.s: main.cpp.s
+.PHONY : main.s
+
+# target to generate assembly for a file
+main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.s
+.PHONY : main.cpp.s
+
 validation-gt.o: validation-gt.cpp.o
 .PHONY : validation-gt.o
 
@@ -256,6 +293,7 @@ validation.o: validation.cpp.o
 # target to build an object file
 validation.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/validation.dir/build.make CMakeFiles/validation.dir/validation.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/validation.cpp.o
 .PHONY : validation.cpp.o
 
 validation.i: validation.cpp.i
@@ -264,6 +302,7 @@ validation.i: validation.cpp.i
 # target to preprocess a source file
 validation.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/validation.dir/build.make CMakeFiles/validation.dir/validation.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/validation.cpp.i
 .PHONY : validation.cpp.i
 
 validation.s: validation.cpp.s
@@ -272,6 +311,7 @@ validation.s: validation.cpp.s
 # target to generate assembly for a file
 validation.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/validation.dir/build.make CMakeFiles/validation.dir/validation.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/validation.cpp.s
 .PHONY : validation.cpp.s
 
 # Help Target
@@ -290,7 +330,11 @@ help:
 	@echo "... gmock_main"
 	@echo "... gtest"
 	@echo "... gtest_main"
+	@echo "... main"
 	@echo "... validation"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
 	@echo "... validation-gt.o"
 	@echo "... validation-gt.i"
 	@echo "... validation-gt.s"

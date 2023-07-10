@@ -1,4 +1,5 @@
 /home/ted/Desktop/vs/password-check/build/CMakeFiles/validation.dir
+/home/ted/Desktop/vs/password-check/build/CMakeFiles/main.dir
 /home/ted/Desktop/vs/password-check/build/CMakeFiles/edit_cache.dir
 /home/ted/Desktop/vs/password-check/build/CMakeFiles/rebuild_cache.dir
 /home/ted/Desktop/vs/password-check/build/CMakeFiles/list_install_components.dir

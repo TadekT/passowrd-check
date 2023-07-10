@@ -20,7 +20,11 @@ validation
 validation.cpp
 validation-gt.cpp
 )
-  
+add_executable(
+  main
+  main.cpp
+  validation.cpp
+)
 target_link_libraries(
     validation
     GTest::gtest_main
