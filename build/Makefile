@@ -65,6 +65,16 @@ CMAKE_BINARY_DIR = /home/ted/Desktop/vs/password-check/build
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+.PHONY : test/fast
+
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
@@ -87,7 +97,7 @@ rebuild_cache/fast: rebuild_cache
 
 # Special rule for the target list_install_components
 list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"gmock\" \"gtest\""
 .PHONY : list_install_components
 
 # Special rule for the target list_install_components
@@ -162,30 +172,30 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named validation
+# Target rules for targets named passwordCheck
 
 # Build rule for target.
-validation: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 validation
-.PHONY : validation
+passwordCheck: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 passwordCheck
+.PHONY : passwordCheck
 
 # fast build rule for target.
-validation/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/validation.dir/build.make CMakeFiles/validation.dir/build
-.PHONY : validation/fast
+passwordCheck/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/passwordCheck.dir/build.make CMakeFiles/passwordCheck.dir/build
+.PHONY : passwordCheck/fast
 
 #=============================================================================
-# Target rules for targets named main
+# Target rules for targets named passwordCheck-ut
 
 # Build rule for target.
-main: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 main
-.PHONY : main
+passwordCheck-ut: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 passwordCheck-ut
+.PHONY : passwordCheck-ut
 
 # fast build rule for target.
-main/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
-.PHONY : main/fast
+passwordCheck-ut/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/passwordCheck-ut.dir/build.make CMakeFiles/passwordCheck-ut.dir/build
+.PHONY : passwordCheck-ut/fast
 
 #=============================================================================
 # Target rules for targets named gmock
@@ -244,7 +254,7 @@ main.o: main.cpp.o
 
 # target to build an object file
 main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/passwordCheck.dir/build.make CMakeFiles/passwordCheck.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -252,7 +262,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/passwordCheck.dir/build.make CMakeFiles/passwordCheck.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -260,7 +270,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/passwordCheck.dir/build.make CMakeFiles/passwordCheck.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 validation-gt.o: validation-gt.cpp.o
@@ -268,7 +278,7 @@ validation-gt.o: validation-gt.cpp.o
 
 # target to build an object file
 validation-gt.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/validation.dir/build.make CMakeFiles/validation.dir/validation-gt.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/passwordCheck-ut.dir/build.make CMakeFiles/passwordCheck-ut.dir/validation-gt.cpp.o
 .PHONY : validation-gt.cpp.o
 
 validation-gt.i: validation-gt.cpp.i
@@ -276,7 +286,7 @@ validation-gt.i: validation-gt.cpp.i
 
 # target to preprocess a source file
 validation-gt.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/validation.dir/build.make CMakeFiles/validation.dir/validation-gt.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/passwordCheck-ut.dir/build.make CMakeFiles/passwordCheck-ut.dir/validation-gt.cpp.i
 .PHONY : validation-gt.cpp.i
 
 validation-gt.s: validation-gt.cpp.s
@@ -284,7 +294,7 @@ validation-gt.s: validation-gt.cpp.s
 
 # target to generate assembly for a file
 validation-gt.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/validation.dir/build.make CMakeFiles/validation.dir/validation-gt.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/passwordCheck-ut.dir/build.make CMakeFiles/passwordCheck-ut.dir/validation-gt.cpp.s
 .PHONY : validation-gt.cpp.s
 
 validation.o: validation.cpp.o
@@ -292,8 +302,8 @@ validation.o: validation.cpp.o
 
 # target to build an object file
 validation.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/validation.dir/build.make CMakeFiles/validation.dir/validation.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/validation.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/passwordCheck.dir/build.make CMakeFiles/passwordCheck.dir/validation.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/passwordCheck-ut.dir/build.make CMakeFiles/passwordCheck-ut.dir/validation.cpp.o
 .PHONY : validation.cpp.o
 
 validation.i: validation.cpp.i
@@ -301,8 +311,8 @@ validation.i: validation.cpp.i
 
 # target to preprocess a source file
 validation.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/validation.dir/build.make CMakeFiles/validation.dir/validation.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/validation.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/passwordCheck.dir/build.make CMakeFiles/passwordCheck.dir/validation.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/passwordCheck-ut.dir/build.make CMakeFiles/passwordCheck-ut.dir/validation.cpp.i
 .PHONY : validation.cpp.i
 
 validation.s: validation.cpp.s
@@ -310,8 +320,8 @@ validation.s: validation.cpp.s
 
 # target to generate assembly for a file
 validation.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/validation.dir/build.make CMakeFiles/validation.dir/validation.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/validation.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/passwordCheck.dir/build.make CMakeFiles/passwordCheck.dir/validation.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/passwordCheck-ut.dir/build.make CMakeFiles/passwordCheck-ut.dir/validation.cpp.s
 .PHONY : validation.cpp.s
 
 # Help Target
@@ -326,12 +336,13 @@ help:
 	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
+	@echo "... test"
 	@echo "... gmock"
 	@echo "... gmock_main"
 	@echo "... gtest"
 	@echo "... gtest_main"
-	@echo "... main"
-	@echo "... validation"
+	@echo "... passwordCheck"
+	@echo "... passwordCheck-ut"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

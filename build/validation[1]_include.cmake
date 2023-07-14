@@ -1,5 +1,0 @@
-if(EXISTS "/home/ted/Desktop/vs/password-check/build/validation[1]_tests.cmake")
-  include("/home/ted/Desktop/vs/password-check/build/validation[1]_tests.cmake")
-else()
-  add_test(validation_NOT_BUILT validation_NOT_BUILT)
-endif()

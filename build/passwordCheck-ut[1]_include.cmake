@@ -1,0 +1,5 @@
+if(EXISTS "/home/ted/Desktop/vs/password-check/build/passwordCheck-ut[1]_tests.cmake")
+  include("/home/ted/Desktop/vs/password-check/build/passwordCheck-ut[1]_tests.cmake")
+else()
+  add_test(passwordCheck-ut_NOT_BUILT passwordCheck-ut_NOT_BUILT)
+endif()
